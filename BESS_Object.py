@@ -11,10 +11,10 @@ class  BESS_Object:
    def __init__(self, Year,Month,Day,OperationType):
      
        self.Path         = "../"          
-       self.Year = None  
-       self.Month         = None  
-       self.Day           = None
-       self.OperationType = None
+       self.Year = Year  
+       self.Month         = Month  
+       self.Day           = Day
+       self.OperationType = OperationType
         
        self.OverpassMOD  = self.Path + "Ancillary/OverpassMOD.005d.mat" 
        self.OverpassMYD  = self.Path + "Ancillary/OverpassMYD.005d.mat" 
