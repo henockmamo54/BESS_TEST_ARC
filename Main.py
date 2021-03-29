@@ -18,7 +18,13 @@ import ancillary_info as ancillaryinfo
 myobject = _bess.BESS_Object(2021,3,15,"005") 
 
 mygenerator= generator.BESS_Generate(myobject)
+
 mygenerator.Generate_GPP_ET_005()
+
+
+
+
+
 mygenerator.Generate_GPP_ET_30s()
 
 myprocessor= processor.BESS_Processor(myobject)
