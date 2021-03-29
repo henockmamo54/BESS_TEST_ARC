@@ -8,13 +8,14 @@ Created on Fri Mar 19 15:20:29 2021
 """
 
 class  BESS_Object:           
-   def __init__(self, Year,Month,Day,OperationType):
+   def __init__(self, Year,Month,Day,OperationType,Period):
      
        self.Path         = "../"          
        self.Year = Year  
        self.Month         = Month  
        self.Day           = Day
        self.OperationType = OperationType
+       self.Period        = ""
         
        self.OverpassMOD  = self.Path + "Ancillary/OverpassMOD.{}.mat".format(OperationType) 
        self.OverpassMYD  = self.Path + "Ancillary/OverpassMYD.{}.mat".format(OperationType)  
