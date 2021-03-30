@@ -21,12 +21,18 @@ class Surface_status_info:
     
     def RVIS_Daily_RNIR_Daily_RSW_Daily(self):
         print("RVIS_Daily_RNIR_Daily_RSW_Daily")
+        #2.1.1 RVIS_Daily, RNIR_Daily, RSW_Daily
+        #f_ALB → f_AverageMonthly → f_VariationMonthly → f_RefDaily (opt =0) → f_RefDaily (opt =1)
         
     def FPAR_Daily_LAI_Daily_NDVI_Daily(self):
-        print("FPAR_Daily_LAI_Daily_NDVI_Daily")
+        print("FPAR_Daily_LAI_Daily_NDVI_Daily") 
+        # 2.1.2 FPAR_Daily, LAI_Daily, NDVI_Daily
+        #f_LAIFPARFilter → f_AverageMonthly → f_VariationMonthly → f_LAIFPARDaily
         
     def LST_AM_LST_PM(self):
         print("FPAR_Daily_LAI_Daily_NDVI_Daily")
+        # 2.1.2 LST_AM, LST_PM
+        # f_LSTDay → f_LSTNight → f_LSTFill
         
     
     def validate():
