@@ -1,6 +1,6 @@
 
 import os
-import datetime
+from datetime import datetime
 import threading 
 
 #====================== Test =========================
@@ -19,12 +19,12 @@ f.write(log_text)
 
 
 # make sure the system time is correct 
-os.system('sudo ntpdate time.nist.gov')
-time = datetime.datetime.now()
+# os.system('sudo ntpdate time.nist.gov')
+time = datetime.now()
 year =time.year
 
 
-path ="/bess19/Yulin/Data"
+path ="~/../../bess19/Yulin/Data"
 
 def f1():
     os.system('cd {}/Aqua_L2'.format(path)) 
@@ -82,9 +82,16 @@ def f11():
     os.system('nohup python {}/MOD44B/Download.py year hiik324 Ecology123 log_MOD44B.txt &'.format(path))
 
 def f12():
-    os.system('cd {}/NOAACO2'.format(path))
+    subpath='{}/NOAACO2/'.format(path)  
+    os.system('cd '+ subpath) 
     os.system('find . -size 0 -delete')
-    os.system('nohup python {}/NOAACO2/Download.py log_NOAACO2.txt &'.format(path))
+
+    os.system('nohup python {}/NOAACO2/download_v2.py log_NOAACO2.txt &'.format(path))
+
+    #os.system('nohup python {}test.py'.format(subpath))
+
+    #os.system('nohup python {}Download.py log_NOAACO2.txt &'.format(subpath))
+    # os.system('nohup python {}/NOAACO2/Download.py log_NOAACO2.txt &'.format(path))
     
 def f13():
     os.system('cd {}/OCO2CO2'.format(path))
@@ -111,57 +118,57 @@ def f16():
     
 if __name__ == "__main__": 
     # create threads
-
-    t1= threading.Thread(target=f1)
-    t2= threading.Thread(target=f2)
-    t3= threading.Thread(target=f3)
-    t4= threading.Thread(target=f4)
-    t5= threading.Thread(target=f5)
-    t6= threading.Thread(target=f6)
-    t7= threading.Thread(target=f7)
-    t8= threading.Thread(target=f8)
-    t9= threading.Thread(target=f9)
-    t10= threading.Thread(target=f10)
-    t11= threading.Thread(target=f11)
+    print("test run ***** ")
+    # t1= threading.Thread(target=f1)
+    # t2= threading.Thread(target=f2)
+    # t3= threading.Thread(target=f3)
+    # t4= threading.Thread(target=f4)
+    # t5= threading.Thread(target=f5)
+    # t6= threading.Thread(target=f6)
+    # t7= threading.Thread(target=f7)
+    # t8= threading.Thread(target=f8)
+    # t9= threading.Thread(target=f9)
+    # t10= threading.Thread(target=f10)
+    # t11= threading.Thread(target=f11)
     t12= threading.Thread(target=f12)
-    t13= threading.Thread(target=f13)
-    t14= threading.Thread(target=f14)
-    t15= threading.Thread(target=f15)
-    t16= threading.Thread(target=f16)
+    # t13= threading.Thread(target=f13)
+    # t14= threading.Thread(target=f14)
+    # t15= threading.Thread(target=f15)
+    # t16= threading.Thread(target=f16)
 
-    t1.start()
-    t2.start()     
-    t3.start()
-    t4.start()
-    t5.start()
-    t6.start()
-    t7.start()
-    t8.start()
-    t9.start()
-    t10.start()
-    t11.start()
+    # t1.start()
+    # t2.start()     
+    # t3.start()
+    # t4.start()
+    # t5.start()
+    # t6.start()
+    # t7.start()
+    # t8.start()
+    # t9.start()
+    # t10.start()
+    # t11.start()
     t12.start()
-    t13.start()
-    t14.start()
-    t15.start()
-    t16.start()
+    # t13.start()
+    # t14.start()
+    # t15.start()
+    # t16.start()
     
-    t1.join()
-    t2.join()      
-    t3.join()
-    t4.join()
-    t5.join()
-    t6.join()
-    t7.join()
-    t8.join()
-    t9.join()
-    t10.join()
-    t11.join()
+    # t1.join()
+    # t2.join()      
+    # t3.join()
+    # t4.join()
+    # t5.join()
+    # t6.join()
+    # t7.join()
+    # t8.join()
+    # t9.join()
+    # t10.join()
+    # t11.join()
     t12.join()
-    t13.join()
-    t14.join()
-    t15.join()
-    t16.join()
+    # t13.join()
+    # t14.join()
+    # t15.join()
+    # t16.join()
     
   
     
