@@ -1,1 +1,2 @@
-cd ~/CronDownload & python ~/CronDownload/cron_download_script.py 
+cd ~/CronDownload 
+python ~/CronDownload/cron_download_script_log.py 
