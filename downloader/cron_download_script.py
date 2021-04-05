@@ -3,19 +3,6 @@ import os
 from datetime import datetime
 import threading 
 
-#====================== Test =========================
-start=datetime.now()
-'''
-execute task
-'''
-
-end =datetime.now()
-
-f = open("log.txt","a")
-log_text= "\n start= {}, end= {} \n". format(start,end)
-f.write(log_text)
-
-#====================== Test =========================
 
 
 # make sure the system time is correct 
@@ -117,8 +104,8 @@ def f16():
     os.system('nohup python3 {}/MERRA/SLV/Download.py log_SLV.txt &'.format(path))    
     
 if __name__ == "__main__": 
-    # create threads
-    print("test run ***** ")
+    # create threads 
+
     # t1= threading.Thread(target=f1)
     # t2= threading.Thread(target=f2)
     # t3= threading.Thread(target=f3)
