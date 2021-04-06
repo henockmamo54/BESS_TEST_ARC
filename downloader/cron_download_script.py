@@ -88,15 +88,15 @@ def f14():
 def f15():
     os.system('cd {}/MERRA/GAS'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('export PATH="/usr/local/python/3.6/bin:$PATH"')
-    os.system('nohup python3 {}/MERRA/GAS/Download.py log_GAS.txt &'.format(path))
+    # os.system('export PATH="/usr/local/python/3.6/bin:$PATH"')
+    os.system('nohup python3 {0}/MERRA/GAS/download_v2.py > {0}/MERRA/GAS/log_GAS.txt &'.format(path))
     
 def f16():
     os.system('cd {}/MERRA/SLV'.format(path))
     os.system('find . -size 0 -delete')
     # os.system('export PATH="/usr/local/python/3.6/bin:$PATH"')
     # os.system('export PATH="~/../../usr/local/anaconda3/bin/python:$PATH"')
-    os.system('nohup python3 {0}/MERRA/SLV/Download.py > {0}log_SLV.txt &'.format(path))    
+    os.system('nohup python3 {0}/MERRA/SLV/Download.py > {0}/MERRA/GAS/log_SLV.txt &'.format(path))    
     
 if __name__ == "__main__": 
     # create threads 
@@ -115,8 +115,8 @@ if __name__ == "__main__":
     # t12= threading.Thread(target=f12)
     # t13= threading.Thread(target=f13)
     # t14= threading.Thread(target=f14)
-    # t15= threading.Thread(target=f15)
-    t16= threading.Thread(target=f16)
+    t15= threading.Thread(target=f15)
+    # t16= threading.Thread(target=f16)
 
     # t1.start()
     # t2.start()     
@@ -132,8 +132,8 @@ if __name__ == "__main__":
     # t12.start()
     # t13.start()
     # t14.start()
-    # t15.start()
-    t16.start()
+    t15.start()
+    # t16.start()
     
     # t1.join()
     # t2.join()      
@@ -149,8 +149,8 @@ if __name__ == "__main__":
     # t12.join()
     # t13.join()
     # t14.join()
-    # t15.join()
-    t16.join()
+    t15.join()
+    # t16.join()
     
   
     
