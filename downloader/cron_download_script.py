@@ -1,4 +1,5 @@
 
+
 import os
 from datetime import datetime
 import threading 
@@ -73,7 +74,7 @@ def f12():
     os.system('cd '+ subpath) 
     os.system('find . -size 0 -delete')
 
-    os.system('nohup python {}/NOAACO2/download_v2.py log_NOAACO2.txt &'.format(path))
+    os.system('nohup python {}/NOAACO2/download_v2.py > {}/NOAACO2/log_NOAACO2.txt &'.format(path,path))
 
     #os.system('nohup python {}test.py'.format(subpath))
 
