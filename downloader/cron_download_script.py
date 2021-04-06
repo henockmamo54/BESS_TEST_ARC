@@ -31,7 +31,7 @@ def f3():
     
 def f4():
     os.system('cd {}/MCD15A3H'.format(path))
-    os.system('find . -size 0 -delete'.format(path))  
+    os.system('find . -size 0 -delete')  
     os.system('nohup python {}/MCD15A3H/Download_batch.py log_MCD15A3H.txt &'.format(path))
     
 def f5():
@@ -69,17 +69,10 @@ def f11():
     os.system('find . -size 0 -delete')
     os.system('nohup python {}/MOD44B/Download.py year hiik324 Ecology123 log_MOD44B.txt &'.format(path))
 
-def f12():
-    subpath='{}/NOAACO2/'.format(path)  
-    os.system('cd '+ subpath) 
+def f12():  
+    os.system('cd '+ '{}/NOAACO2/'.format(path)) 
     os.system('find . -size 0 -delete')
-
-    os.system('nohup python {}/NOAACO2/download_v2.py > {}/NOAACO2/log_NOAACO2.txt &'.format(path,path))
-
-    #os.system('nohup python {}test.py'.format(subpath))
-
-    #os.system('nohup python {}Download.py log_NOAACO2.txt &'.format(subpath))
-    # os.system('nohup python {}/NOAACO2/Download.py log_NOAACO2.txt &'.format(path))
+    os.system('nohup python {}/NOAACO2/download_v2.py > {}/NOAACO2/log_NOAACO2.txt &'.format(path,path)) 
     
 def f13():
     os.system('cd {}/OCO2CO2'.format(path))
@@ -101,8 +94,9 @@ def f15():
 def f16():
     os.system('cd {}/MERRA/SLV'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('export PATH="/usr/local/python/3.6/bin:$PATH"')
-    os.system('nohup python3 {}/MERRA/SLV/Download.py log_SLV.txt &'.format(path))    
+    # os.system('export PATH="/usr/local/python/3.6/bin:$PATH"')
+    # os.system('export PATH="~/../../usr/local/anaconda3/bin/python:$PATH"')
+    os.system('nohup python3 {0}/MERRA/SLV/Download.py > {0}log_SLV.txt &'.format(path))    
     
 if __name__ == "__main__": 
     # create threads 
@@ -118,11 +112,11 @@ if __name__ == "__main__":
     # t9= threading.Thread(target=f9)
     # t10= threading.Thread(target=f10)
     # t11= threading.Thread(target=f11)
-    t12= threading.Thread(target=f12)
+    # t12= threading.Thread(target=f12)
     # t13= threading.Thread(target=f13)
     # t14= threading.Thread(target=f14)
     # t15= threading.Thread(target=f15)
-    # t16= threading.Thread(target=f16)
+    t16= threading.Thread(target=f16)
 
     # t1.start()
     # t2.start()     
@@ -135,11 +129,11 @@ if __name__ == "__main__":
     # t9.start()
     # t10.start()
     # t11.start()
-    t12.start()
+    # t12.start()
     # t13.start()
     # t14.start()
     # t15.start()
-    # t16.start()
+    t16.start()
     
     # t1.join()
     # t2.join()      
@@ -152,11 +146,11 @@ if __name__ == "__main__":
     # t9.join()
     # t10.join()
     # t11.join()
-    t12.join()
+    # t12.join()
     # t13.join()
     # t14.join()
     # t15.join()
-    # t16.join()
+    t16.join()
     
   
     
