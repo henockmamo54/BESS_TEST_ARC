@@ -67,7 +67,7 @@ def f10():
 def f11():
     os.system('cd {}/MOD44B'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('nohup python {}/MOD44B/Download.py year hiik324 Ecology123 log_MOD44B.txt &'.format(path))
+    os.system('nohup python {0}/MOD44B/Download.py year hiik324 Ecology123 > {0}/MOD44B/log_MOD44B.txt &'.format(path))
 
 def f12():  
     os.system('cd '+ '{}/NOAACO2/'.format(path)) 
@@ -77,13 +77,13 @@ def f12():
 def f13():
     os.system('cd {}/OCO2CO2'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('nohup python {}/OCO2CO2/Download_batch.py log_OCO2CO2.txt &'.format(path))
+    os.system('nohup python {0}/OCO2CO2/Download_batch.py > {0}/OCO2CO2/log_OCO2CO2.txt &'.format(path))
     
 def f14():
     os.system('cd {}/ERA5'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('export PATH="/usr/local/python/3.6/bin:$PATH"')
-    os.system('nohup python {}/ERA5/Download_ERA5.py log_ERA5.txt &'.format(path))
+    # os.system('export PATH="/usr/local/python/3.6/bin:$PATH"')
+    os.system('nohup python {0}/ERA5/Download_ERA5.py > {0}/ERA5/log_ERA5.txt &'.format(path))
     
 def f15():
     os.system('cd {}/MERRA/GAS'.format(path))
@@ -113,9 +113,9 @@ if __name__ == "__main__":
     # t10= threading.Thread(target=f10)
     # t11= threading.Thread(target=f11)
     # t12= threading.Thread(target=f12)
-    # t13= threading.Thread(target=f13)
+    t13= threading.Thread(target=f13)
     # t14= threading.Thread(target=f14)
-    t15= threading.Thread(target=f15)
+    # t15= threading.Thread(target=f15)
     # t16= threading.Thread(target=f16)
 
     # t1.start()
@@ -130,9 +130,9 @@ if __name__ == "__main__":
     # t10.start()
     # t11.start()
     # t12.start()
-    # t13.start()
+    t13.start()
     # t14.start()
-    t15.start()
+    # t15.start()
     # t16.start()
     
     # t1.join()
@@ -147,9 +147,9 @@ if __name__ == "__main__":
     # t10.join()
     # t11.join()
     # t12.join()
-    # t13.join()
+    t13.join()
     # t14.join()
-    t15.join()
+    # t15.join()
     # t16.join()
     
   
