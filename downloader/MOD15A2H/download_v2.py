@@ -12,7 +12,7 @@ import os
 from sys import argv
 from datetime import datetime
 import urllib as urllib2
-import urllib.request
+# import urllib.request
 import sys
 
 ROOT = 'https://e4ftl01.cr.usgs.gov/MOLT/MOD15A2H.006'
@@ -36,7 +36,7 @@ PATH = '%s/%d.%02d.%02d' % (ROOT,year,month,day)
 
 print('Downloading MOD15A2H, ' + YEAR + DOY)
 try:  
-    response = urllib2.request.urlopen(PATH) 
+    response = urllib2.urlopen(PATH) 
     print(PATH)
     for line in response.readlines():
         line = str(line)
@@ -45,7 +45,6 @@ try:
         name = line[:ind].split('"')[-1] + '.hdf'
         URL = '%s/%s' % (PATH,name)
         url = '%s/%s' % (path,name)
-        print(url)
         os.system('wget -q -nc -c -O %s %s --user hiik324 --password Ecology123' %  (url, URL))
         
 except:

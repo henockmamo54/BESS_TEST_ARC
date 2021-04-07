@@ -14,55 +14,57 @@ year =time.year
 
 path ="~/../../bess19/Yulin/Data"
 
+# os.system('module load anaconda3/2020.11')
+
 def f1():
     os.system('cd {}/Aqua_L2'.format(path)) 
     os.system('find . -size 0 -delete')  
-    os.system('nohup matlab -nodisplay <{}/Aqua_L2/Download_Aqua.m> log_Aqua.txt &'.format(path))
+    os.system('nohup matlab -nodisplay <{0}/Aqua_L2/Download_Aqua.m> {0}/Aqua_L2/log_Aqua.txt &'.format(path))
 
 def f2():
     os.system('cd {}/Terra_L2'.format(path))
     os.system('find . -size 0 -delete')  
-    os.system('nohup matlab -nodisplay <{}/Terra_L2/Download_Terra.m> log_Terra.txt &'.format(path))
+    os.system('nohup matlab -nodisplay <{0}/Terra_L2/Download_Terra.m>  {0}/Terra_L2/log_Terra.txt &'.format(path))
 
 def f3():
     os.system('cd {}/MCD12C1'.format(path))
     os.system('find . -size 0 -delete')  
-    os.system('nohup python {}/MCD12C1/Download.py year hiik324 Ecology123 log_MCD12C1.txt &'.format(path))    
+    os.system('nohup python {0}/MCD12C1/Download.py year hiik324 Ecology123 > {0}/MCD12C1/log_MCD12C1.txt &'.format(path))    
     
 def f4():
     os.system('cd {}/MCD15A3H'.format(path))
     os.system('find . -size 0 -delete')  
-    os.system('nohup python {}/MCD15A3H/Download_batch.py log_MCD15A3H.txt &'.format(path))
+    os.system('nohup python {0}/MCD15A3H/Download_batch.py > {0}/MCD15A3H/log_MCD15A3H.txt &'.format(path))
     
 def f5():
     os.system('cd {}/MCD43D59'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('nohup python {}/MCD43D59/Download_batch.py log_MCD43D59.txt &'.format(path))  
+    os.system('nohup python {0}/MCD43D59/Download_batch.py > {0}/MCD43D59/log_MCD43D59.txt &'.format(path))  
         
 def f6():
     os.system('cd {}/MCD43D60'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('nohup python {}/MCD43D60/Download_batch.py log_MCD43D60.txt &'.format(path))
+    os.system('nohup python {0}/MCD43D60/Download_batch.py >  {0}/MCD43D60/log_MCD43D60.txt &'.format(path))
 
 def f7():
     os.system('cd {}/MCD43D61'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('nohup python {}/MCD43D61/Download_batch.py log_MCD43D61.txt &'.format(path))
+    os.system('nohup python {0}/MCD43D61/Download_batch.py > {0}/MCD43D61/log_MCD43D61.txt &'.format(path))
 
 def f8():
     os.system('cd {}/MCD43D62'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('nohup python {}/MCD43D62/Download_batch.py log_MCD43D62.txt &'.format(path))
+    os.system('nohup python {0}/MCD43D62/Download_batch.py > {0}/MCD43D62/log_MCD43D62.txt &'.format(path))
 
 def f9():
     os.system('cd {}/MCD43D63'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('nohup python {}/MCD43D63/Download_batch.py log_MCD43D63.txt &'.format(path))
+    os.system('nohup python {0}/MCD43D63/Download_batch.py > {0}/MCD43D63/log_MCD43D63.txt &'.format(path))
 
 def f10():
     os.system('cd {}/MOD15A2H'.format(path))
     os.system('find . -size 0 -delete')
-    os.system('nohup python {0}/MOD15A2H/Download_batch.py > {0}/MOD15A2H/log_MOD15A2H.txt &'.format(path))
+    os.system('nohup python {0}/MOD15A2H/download_batch_v2.py > {0}/MOD15A2H/log_MOD15A2H.txt &'.format(path))
 
 def f11():
     os.system('cd {}/MOD44B'.format(path))
@@ -89,7 +91,7 @@ def f15():
     os.system('cd {}/MERRA/GAS'.format(path))
     os.system('find . -size 0 -delete')
     # os.system('export PATH="/usr/local/python/3.6/bin:$PATH"')
-    os.system('nohup python3 {0}/MERRA/GAS/download_v2.py > {0}/MERRA/GAS/log_GAS.txt &'.format(path))
+    os.system('nohup python {0}/MERRA/GAS/download_v2.py > {0}/MERRA/GAS/log_GAS.txt &'.format(path))
     
 def f16():
     os.system('cd {}/MERRA/SLV'.format(path))
@@ -100,6 +102,7 @@ def f16():
     
 if __name__ == "__main__": 
     # create threads 
+    
 
     # t1= threading.Thread(target=f1)
     # t2= threading.Thread(target=f2)
@@ -110,12 +113,12 @@ if __name__ == "__main__":
     # t7= threading.Thread(target=f7)
     # t8= threading.Thread(target=f8)
     # t9= threading.Thread(target=f9)
-    t10= threading.Thread(target=f10)
+    # t10= threading.Thread(target=f10)
     # t11= threading.Thread(target=f11)
     # t12= threading.Thread(target=f12)
     # t13= threading.Thread(target=f13)
     # t14= threading.Thread(target=f14)
-    # t15= threading.Thread(target=f15)
+    t15= threading.Thread(target=f15)
     # t16= threading.Thread(target=f16)
 
     # t1.start()
@@ -127,12 +130,12 @@ if __name__ == "__main__":
     # t7.start()
     # t8.start()
     # t9.start()
-    t10.start()
+    # t10.start()
     # t11.start()
     # t12.start()
     # t13.start()
     # t14.start()
-    # t15.start()
+    t15.start()
     # t16.start()
     
     # t1.join()
@@ -144,12 +147,12 @@ if __name__ == "__main__":
     # t7.join()
     # t8.join()
     # t9.join()
-    t10.join()
+    # t10.join()
     # t11.join()
     # t12.join()
     # t13.join()
     # t14.join()
-    # t15.join()
+    t15.join()
     # t16.join()
     
   
