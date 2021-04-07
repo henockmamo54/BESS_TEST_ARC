@@ -14,26 +14,139 @@ class Climate_forcing_info:
         self._bessObject=_bessObject
         print("Climate_forcing_info")
         
-    def generate_all_surface_info(self):
+    def generate_all_climate_forcing_info(self):
         print("Climate_forcing_info")
+        
+        
+        eng = matlab.engine.start_matlab()
+        
+                
+        tf = eng.f_ERA(self._bessObject.Year,self._bessObject.Month) 
+        
+        tf = eng.f_DownscaleERA5Daily(self._bessObject.Year,
+        							  self._bessObject.Month,'Ta') 
+        
+        tf = eng.f_DownscaleERA5Daily(self._bessObject.Year,
+        							  self._bessObject.Month,'Td') 
+        
+        tf = eng.f_DownscaleERA5Daily(self._bessObject.Year,
+        							  self._bessObject.Month,'Rs') 
+        
+        tf = eng.f_Calibrate( 'Rs_Daily', self._bessObject.Year,
+        					 self._bessObject.Month) 
+        
+        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+        								 self._bessObject.Month,'Ta','MOD') 
+        
+        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+        								 self._bessObject.Month,'Ta','MYD') 
+        
+        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+        								 self._bessObject.Month,'Td','MOD') 
+        
+        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+        								 self._bessObject.Month,'Td','MYD') 
+        
+        tf = eng.f_RadiationERA(self._bessObject.Year,self._bessObject.Month,'AM') 
+        
+        tf = eng.f_AverageMonthly(self._bessObject.Year,
+        						  self._bessObject.Month,'PM') 
+        
+        tf = eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month) 
+        
+        tf = eng.f_RadiationFill('Rg_AM',self._bessObject.Year,
+        						 self._bessObject.Month) 
+        
+        tf = eng.f_RadiationFill('Rg_PM',self._bessObject.Year,
+        						 self._bessObject.Month) 
+        
+        tf = eng.f_RadiationFill('UV_AM',self._bessObject.Year,
+        						 self._bessObject.Month) 
+        
+        tf = eng.f_AverageMonthly('UV_PM',self._bessObject.Year,
+        						  self._bessObject.Month) 
+        
+        tf = eng.f_AverageMonthly('PARDir_AM',self._bessObject.Year,
+        						  self._bessObject.Month) 
+        
+        tf = eng.f_AverageMonthly('PARDir_PM',self._bessObject.Year,
+        						  self._bessObject.Month)
+        
+        tf = eng.f_RadiationFill('PARDiff_AM',self._bessObject.Year,
+        						  self._bessObject.Month) 
+        
+        tf = eng.f_RadiationFill('PARDiff_PM',self._bessObject.Year,
+        						 self._bessObject.Month)
+        
+        tf = eng.f_RadiationFill('NIRDir_AM',self._bessObject.Year,
+        						 self._bessObject.Month) 
+        
+        tf = eng.f_RadiationFill('NIRDir_PM',self._bessObject.Year,
+        						  self._bessObject.Month) 
+        
+        tf = eng.f_RadiationFill('NIRDiff_AM',self._bessObject.Year,
+        						 self._bessObject.Month,0) 
+        
+        tf = eng.f_RadiationFill('NIRDiff_PM',self._bessObject.Year,
+        						  self._bessObject.Month) 
+        
+        tf = eng.f_Lag30('PAR_Daily',self._bessObject.Year,
+        						  self._bessObject.Month)
+        						  
+        tf = eng.f_Lag30('Ta_Daily',self._bessObject.Year,
+        						  self._bessObject.Month) 
+        						  
+        tf = eng.f_Lag30('Td_Daily',self._bessObject.Year,
+        				 self._bessObject.Month) 
+        				 
+        tf = eng.f_AverageMonthly('Rs_AM',self._bessObject.Year,
+        						  self._bessObject.Month,0) 
+        						  
+        tf = eng.f_AverageMonthly('Rs_PM',self._bessObject.Year,
+        						  self._bessObject.Month,0) 
+        						  
+        tf = eng.f_AverageMonthly('UV_ERA_AM',self._bessObject.Year,
+        						  self._bessObject.Month,0) 
+        						  
+        tf = eng.f_AverageMonthly('UV_ERA_PM',self._bessObject.Year,
+        						  self._bessObject.Month,0)
+        						  
+        tf = eng.f_AverageMonthly('PARDir_ERA_AM',self._bessObject.Year,
+        						  self._bessObject.Month,0)
+        						  
+        tf = eng.f_AverageMonthly('PARDir_ERA_PM',self._bessObject.Year,
+        						  self._bessObject.Month,0)
+        
+        tf = eng.f_AverageMonthly('PARDiff_ERA_AM',self._bessObject.Year, 
+                                  self._bessObject.Month,0) 
+        						  
+        tf = eng.f_AverageMonthly('PARDiff_ERA_PM',self._bessObject.Year,
+        						  self._bessObject.Month,0)
+        
+        tf = eng.f_AverageMonthly('NIRDir_ERA_AM',self._bessObject.Year,
+        						  self._bessObject.Month,0) 
+        						  
+        tf = eng.f_AverageMonthly('NIRDir_ERA_PM',self._bessObject.Year,
+        						  self._bessObject.Month,0) 
+        						  
+        tf = eng.f_AverageMonthly('NIRDiff_ERA_AM',self._bessObject.Year,
+        						  self._bessObject.Month,0)
+        						  
+        tf = eng.f_AverageMonthly('NIRDiff_ERA_PM',self._bessObject.Year,
+        						  self._bessObject.Month,0) 
+        
+        tf = eng.f_OCO2(self._bessObject.Year, self._bessObject.Month) 
+        
+        tf1 = eng.f_NOAAbaseline(self._bessObject.Year, self._bessObject.Month) 
+        
+        tf2 = eng.f_Ca_(self._bessObject.Year, self._bessObject.Month) 
+        
+        
+        eng.quit()
+        
+        
 
-    def NIRDiff_AM_NIRDiff_PM_NIRDir_AM_NIRDir_PM(self):
-        print("NIRDiff_AM_NIRDiff_PM_NIRDir_AM_NIRDir_PM")
-        
-    def PARDiff_AM_PARDiff_PM_PARDir_AM_PARDir_PM(self):
-        print("PARDiff_AM_PARDiff_PM_PARDir_AM_PARDir_PM")
-        
-    def Rg_AM_Rg_PM_UV_AM_UV_PM(self):
-        print("Rg_AM_Rg_PM_UV_AM_UV_PM")
-    
-    def Ta_Daily_Ta_PM_Ta_AM_Td_Daily_(self):
-        print("Rg_AM_Rg_PM_UV_AM_UV_PM")
-        
-    def Td_AM_Td_PM_Ta_Lag30_Td_Lag30(self):
-        print("Rg_AM_Rg_PM_UV_AM_UV_PM")
-    
-    def Ca(self):
-        print("ca")
+     
         
     def validate():
         print("Validation")
