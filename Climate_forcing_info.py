@@ -21,125 +21,125 @@ class Climate_forcing_info:
         eng = matlab.engine.start_matlab()
         
                 
-        tf = eng.f_ERA(self._bessObject.Year,self._bessObject.Month) 
+        eng.f_ERA(self._bessObject.Year,self._bessObject.Month,nargout=0)
         
-        tf = eng.f_DownscaleERA5Daily(self._bessObject.Year,
-        							  self._bessObject.Month,'Ta') 
+        eng.f_DownscaleERA5Daily(self._bessObject.Year,
+        							  self._bessObject.Month,'Ta',nargout=0)
         
-        tf = eng.f_DownscaleERA5Daily(self._bessObject.Year,
-        							  self._bessObject.Month,'Td') 
+        eng.f_DownscaleERA5Daily(self._bessObject.Year,
+        							  self._bessObject.Month,'Td',nargout=0)
         
-        tf = eng.f_DownscaleERA5Daily(self._bessObject.Year,
-        							  self._bessObject.Month,'Rs') 
+        eng.f_DownscaleERA5Daily(self._bessObject.Year,
+        							  self._bessObject.Month,'Rs',nargout=0)
         
-        tf = eng.f_Calibrate( 'Rs_Daily', self._bessObject.Year,
-        					 self._bessObject.Month) 
+        eng.f_Calibrate( 'Rs_Daily', self._bessObject.Year,
+        					 self._bessObject.Month,nargout=0)
         
-        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
-        								 self._bessObject.Month,'Ta','MOD') 
+        eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+        								 self._bessObject.Month,'Ta','MOD',nargout=0)
         
-        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
-        								 self._bessObject.Month,'Ta','MYD') 
+        eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+        								 self._bessObject.Month,'Ta','MYD',nargout=0)
         
-        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
-        								 self._bessObject.Month,'Td','MOD') 
+        eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+        								 self._bessObject.Month,'Td','MOD',nargout=0)
         
-        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
-        								 self._bessObject.Month,'Td','MYD') 
+        eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+        								 self._bessObject.Month,'Td','MYD',nargout=0)
         
-        tf = eng.f_RadiationERA(self._bessObject.Year,self._bessObject.Month,'AM') 
+        eng.f_RadiationERA(self._bessObject.Year,self._bessObject.Month,'AM',nargout=0)
         
-        tf = eng.f_AverageMonthly(self._bessObject.Year,
-        						  self._bessObject.Month,'PM') 
+        eng.f_AverageMonthly(self._bessObject.Year,
+        						  self._bessObject.Month,'PM',nargout=0)
         
-        tf = eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month) 
+        eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month,nargout=0)
         
-        tf = eng.f_RadiationFill('Rg_AM',self._bessObject.Year,
-        						 self._bessObject.Month) 
+        eng.f_RadiationFill('Rg_AM',self._bessObject.Year,
+        						 self._bessObject.Month,nargout=0)
         
-        tf = eng.f_RadiationFill('Rg_PM',self._bessObject.Year,
-        						 self._bessObject.Month) 
+        eng.f_RadiationFill('Rg_PM',self._bessObject.Year,
+        						 self._bessObject.Month,nargout=0)
         
-        tf = eng.f_RadiationFill('UV_AM',self._bessObject.Year,
-        						 self._bessObject.Month) 
+        eng.f_RadiationFill('UV_AM',self._bessObject.Year,
+        						 self._bessObject.Month,nargout=0)
         
-        tf = eng.f_AverageMonthly('UV_PM',self._bessObject.Year,
-        						  self._bessObject.Month) 
+        eng.f_AverageMonthly('UV_PM',self._bessObject.Year,
+        						  self._bessObject.Month,nargout=0)
         
-        tf = eng.f_AverageMonthly('PARDir_AM',self._bessObject.Year,
-        						  self._bessObject.Month) 
+        eng.f_AverageMonthly('PARDir_AM',self._bessObject.Year,
+        						  self._bessObject.Month,nargout=0)
         
-        tf = eng.f_AverageMonthly('PARDir_PM',self._bessObject.Year,
+        eng.f_AverageMonthly('PARDir_PM',self._bessObject.Year,
         						  self._bessObject.Month)
         
-        tf = eng.f_RadiationFill('PARDiff_AM',self._bessObject.Year,
-        						  self._bessObject.Month) 
+        eng.f_RadiationFill('PARDiff_AM',self._bessObject.Year,
+        						  self._bessObject.Month,nargout=0)
         
-        tf = eng.f_RadiationFill('PARDiff_PM',self._bessObject.Year,
+        eng.f_RadiationFill('PARDiff_PM',self._bessObject.Year,
         						 self._bessObject.Month)
         
-        tf = eng.f_RadiationFill('NIRDir_AM',self._bessObject.Year,
-        						 self._bessObject.Month) 
+        eng.f_RadiationFill('NIRDir_AM',self._bessObject.Year,
+        						 self._bessObject.Month,nargout=0)
         
-        tf = eng.f_RadiationFill('NIRDir_PM',self._bessObject.Year,
-        						  self._bessObject.Month) 
+        eng.f_RadiationFill('NIRDir_PM',self._bessObject.Year,
+        						  self._bessObject.Month,nargout=0)
         
-        tf = eng.f_RadiationFill('NIRDiff_AM',self._bessObject.Year,
-        						 self._bessObject.Month,0) 
+        eng.f_RadiationFill('NIRDiff_AM',self._bessObject.Year,
+        						 self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_RadiationFill('NIRDiff_PM',self._bessObject.Year,
-        						  self._bessObject.Month) 
+        eng.f_RadiationFill('NIRDiff_PM',self._bessObject.Year,
+        						  self._bessObject.Month,nargout=0)
         
-        tf = eng.f_Lag30('PAR_Daily',self._bessObject.Year,
+        eng.f_Lag30('PAR_Daily',self._bessObject.Year,
         						  self._bessObject.Month)
         						  
-        tf = eng.f_Lag30('Ta_Daily',self._bessObject.Year,
-        						  self._bessObject.Month) 
+        eng.f_Lag30('Ta_Daily',self._bessObject.Year,
+        						  self._bessObject.Month,nargout=0)
         						  
-        tf = eng.f_Lag30('Td_Daily',self._bessObject.Year,
-        				 self._bessObject.Month) 
+        eng.f_Lag30('Td_Daily',self._bessObject.Year,
+        				 self._bessObject.Month,nargout=0)
         				 
-        tf = eng.f_AverageMonthly('Rs_AM',self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('Rs_AM',self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         						  
-        tf = eng.f_AverageMonthly('Rs_PM',self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('Rs_PM',self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         						  
-        tf = eng.f_AverageMonthly('UV_ERA_AM',self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('UV_ERA_AM',self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         						  
-        tf = eng.f_AverageMonthly('UV_ERA_PM',self._bessObject.Year,
+        eng.f_AverageMonthly('UV_ERA_PM',self._bessObject.Year,
         						  self._bessObject.Month,0)
         						  
-        tf = eng.f_AverageMonthly('PARDir_ERA_AM',self._bessObject.Year,
+        eng.f_AverageMonthly('PARDir_ERA_AM',self._bessObject.Year,
         						  self._bessObject.Month,0)
         						  
-        tf = eng.f_AverageMonthly('PARDir_ERA_PM',self._bessObject.Year,
+        eng.f_AverageMonthly('PARDir_ERA_PM',self._bessObject.Year,
         						  self._bessObject.Month,0)
         
-        tf = eng.f_AverageMonthly('PARDiff_ERA_AM',self._bessObject.Year, 
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('PARDiff_ERA_AM',self._bessObject.Year, 
+                                  self._bessObject.Month,0,nargout=0)
         						  
-        tf = eng.f_AverageMonthly('PARDiff_ERA_PM',self._bessObject.Year,
+        eng.f_AverageMonthly('PARDiff_ERA_PM',self._bessObject.Year,
         						  self._bessObject.Month,0)
         
-        tf = eng.f_AverageMonthly('NIRDir_ERA_AM',self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('NIRDir_ERA_AM',self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         						  
-        tf = eng.f_AverageMonthly('NIRDir_ERA_PM',self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('NIRDir_ERA_PM',self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         						  
-        tf = eng.f_AverageMonthly('NIRDiff_ERA_AM',self._bessObject.Year,
+        eng.f_AverageMonthly('NIRDiff_ERA_AM',self._bessObject.Year,
         						  self._bessObject.Month,0)
         						  
-        tf = eng.f_AverageMonthly('NIRDiff_ERA_PM',self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('NIRDiff_ERA_PM',self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_OCO2(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_OCO2(self._bessObject.Year, self._bessObject.Month,nargout=0)
         
-        tf1 = eng.f_NOAAbaseline(self._bessObject.Year, self._bessObject.Month) 
+        tf1 = eng.f_NOAAbaseline(self._bessObject.Year, self._bessObject.Month,nargout=0)
         
-        tf2 = eng.f_Ca_(self._bessObject.Year, self._bessObject.Month) 
+        tf2 = eng.f_Ca_(self._bessObject.Year, self._bessObject.Month,nargout=0)
         
         
         eng.quit()
@@ -161,7 +161,7 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_ERA(self._bessObject.Year,self._bessObject.Month) 
+        eng.f_ERA(self._bessObject.Year,self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -174,8 +174,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_DownscaleERA5Daily(self._bessObject.Year,
-                                      self._bessObject.Month,'Ta') 
+        eng.f_DownscaleERA5Daily(self._bessObject.Year,
+                                      self._bessObject.Month,'Ta',nargout=0)
         
         eng.quit()
         
@@ -187,8 +187,8 @@ class Climate_forcing_info:
   
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_DownscaleERA5Daily(self._bessObject.Year,
-                                      self._bessObject.Month,'Td') 
+        eng.f_DownscaleERA5Daily(self._bessObject.Year,
+                                      self._bessObject.Month,'Td',nargout=0)
         
         eng.quit()
         
@@ -201,8 +201,8 @@ class Climate_forcing_info:
 
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_DownscaleERA5Daily(self._bessObject.Year,
-                                      self._bessObject.Month,'Rs') 
+        eng.f_DownscaleERA5Daily(self._bessObject.Year,
+                                      self._bessObject.Month,'Rs',nargout=0)
         
         eng.quit()
         
@@ -214,8 +214,8 @@ class Climate_forcing_info:
                 
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_Calibrate( 'Rs_Daily', self._bessObject.Year,
-                             self._bessObject.Month) 
+        eng.f_Calibrate( 'Rs_Daily', self._bessObject.Year,
+                             self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -228,8 +228,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
-                                         self._bessObject.Month,'Ta','MOD') 
+        eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+                                         self._bessObject.Month,'Ta','MOD',nargout=0)
         
         eng.quit()
         
@@ -241,8 +241,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
-                                         self._bessObject.Month,'Ta','MYD') 
+        eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+                                         self._bessObject.Month,'Ta','MYD',nargout=0)
         
         eng.quit()
         
@@ -254,8 +254,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
-                                         self._bessObject.Month,'Td','MOD') 
+        eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+                                         self._bessObject.Month,'Td','MOD',nargout=0)
         
         eng.quit()
         
@@ -268,8 +268,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
-                                         self._bessObject.Month,'Td','MYD') 
+        eng.f_DownscaleERA5Snapshot(self._bessObject.Year,
+                                         self._bessObject.Month,'Td','MYD',nargout=0)
         
         eng.quit()
         
@@ -282,7 +282,7 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationERA(self._bessObject.Year,self._bessObject.Month,'AM') 
+        eng.f_RadiationERA(self._bessObject.Year,self._bessObject.Month,'AM',nargout=0)
         
         eng.quit()
         
@@ -295,8 +295,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly(self._bessObject.Year,
-                                  self._bessObject.Month,'PM') 
+        eng.f_AverageMonthly(self._bessObject.Year,
+                                  self._bessObject.Month,'PM',nargout=0)
         
         eng.quit()
         
@@ -308,7 +308,7 @@ class Climate_forcing_info:
   
         eng = matlab.engine.start_matlab()
         
-        tf = eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month) 
+        eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -322,8 +322,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationFill('Rg_AM',self._bessObject.Year,
-                                 self._bessObject.Month) 
+        eng.f_RadiationFill('Rg_AM',self._bessObject.Year,
+                                 self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -335,8 +335,8 @@ class Climate_forcing_info:
   
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationFill('Rg_PM',self._bessObject.Year,
-                                 self._bessObject.Month) 
+        eng.f_RadiationFill('Rg_PM',self._bessObject.Year,
+                                 self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -348,8 +348,8 @@ class Climate_forcing_info:
   
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationFill('UV_AM',self._bessObject.Year,
-                                 self._bessObject.Month) 
+        eng.f_RadiationFill('UV_AM',self._bessObject.Year,
+                                 self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -362,8 +362,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('UV_PM',self._bessObject.Year,
-                                  self._bessObject.Month) 
+        eng.f_AverageMonthly('UV_PM',self._bessObject.Year,
+                                  self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -376,8 +376,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('PARDir_AM',self._bessObject.Year,
-                                  self._bessObject.Month) 
+        eng.f_AverageMonthly('PARDir_AM',self._bessObject.Year,
+                                  self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -390,8 +390,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('PARDir_PM',self._bessObject.Year,
-                                  self._bessObject.Month) 
+        eng.f_AverageMonthly('PARDir_PM',self._bessObject.Year,
+                                  self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -404,8 +404,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationFill('PARDiff_AM',self._bessObject.Year,
-                                  self._bessObject.Month) 
+        eng.f_RadiationFill('PARDiff_AM',self._bessObject.Year,
+                                  self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -418,8 +418,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationFill('PARDiff_PM',self._bessObject.Year,
-                                 self._bessObject.Month) 
+        eng.f_RadiationFill('PARDiff_PM',self._bessObject.Year,
+                                 self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -432,8 +432,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationFill('NIRDir_AM',self._bessObject.Year,
-                                 self._bessObject.Month) 
+        eng.f_RadiationFill('NIRDir_AM',self._bessObject.Year,
+                                 self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -446,8 +446,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationFill('NIRDir_PM',self._bessObject.Year,
-                                  self._bessObject.Month) 
+        eng.f_RadiationFill('NIRDir_PM',self._bessObject.Year,
+                                  self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -459,8 +459,8 @@ class Climate_forcing_info:
   
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationFill('NIRDiff_AM',self._bessObject.Year,
-                                 self._bessObject.Month,0) 
+        eng.f_RadiationFill('NIRDiff_AM',self._bessObject.Year,
+                                 self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -473,8 +473,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RadiationFill('NIRDiff_PM',self._bessObject.Year,
-                                  self._bessObject.Month) 
+        eng.f_RadiationFill('NIRDiff_PM',self._bessObject.Year,
+                                  self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -487,8 +487,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_Lag30('PAR_Daily',self._bessObject.Year,
-                                  self._bessObject.Month) 
+        eng.f_Lag30('PAR_Daily',self._bessObject.Year,
+                                  self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -501,8 +501,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_Lag30('Ta_Daily',self._bessObject.Year,
-                                  self._bessObject.Month) 
+        eng.f_Lag30('Ta_Daily',self._bessObject.Year,
+                                  self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -515,8 +515,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_Lag30('Td_Daily',self._bessObject.Year,
-                         self._bessObject.Month) 
+        eng.f_Lag30('Td_Daily',self._bessObject.Year,
+                         self._bessObject.Month,nargout=0)
         
         eng.quit()
         
@@ -529,8 +529,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('Rs_AM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('Rs_AM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -543,8 +543,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('Rs_PM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('Rs_PM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -556,8 +556,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('UV_ERA_AM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('UV_ERA_AM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -570,8 +570,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('UV_ERA_PM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('UV_ERA_PM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -585,8 +585,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('PARDir_ERA_AM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('PARDir_ERA_AM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -599,8 +599,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('PARDir_ERA_PM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('PARDir_ERA_PM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -613,8 +613,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('PARDiff_ERA_AM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('PARDiff_ERA_AM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -627,8 +627,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('PARDiff_ERA_PM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('PARDiff_ERA_PM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -640,8 +640,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('NIRDir_ERA_AM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('NIRDir_ERA_AM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -653,8 +653,8 @@ class Climate_forcing_info:
   
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('NIRDir_ERA_PM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('NIRDir_ERA_PM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -666,8 +666,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('NIRDiff_ERA_AM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('NIRDiff_ERA_AM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -679,8 +679,8 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('NIRDiff_ERA_PM',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('NIRDiff_ERA_PM',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
         eng.quit()
         
@@ -694,9 +694,9 @@ class Climate_forcing_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_OCO2(self._bessObject.Year, self._bessObject.Month) 
-        tf1 = eng.f_NOAAbaseline(self._bessObject.Year, self._bessObject.Month) 
-        tf2 = eng.f_Ca_(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_OCO2(self._bessObject.Year, self._bessObject.Month,nargout=0)
+        eng.f_NOAAbaseline(self._bessObject.Year, self._bessObject.Month,nargout=0)
+        eng.f_Ca_(self._bessObject.Year, self._bessObject.Month,nargout=0)
         
         eng.quit()
         

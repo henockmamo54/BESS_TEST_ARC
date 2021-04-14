@@ -17,23 +17,17 @@ import ancillary_info as ancillaryinfo
  
 myobject = _bess.BESS_Object(2021,3,15,"005") 
 
-mygenerator= generator.BESS_Generate(myobject)
-
-mygenerator.Generate_GPP_ET_005()
-
-
-
-
-
-mygenerator.Generate_GPP_ET_30s()
+# mygenerator= generator.BESS_Generate(myobject)
+# mygenerator.Generate_GPP_ET_005()
+# mygenerator.Generate_GPP_ET_30s()
 
 myprocessor= processor.BESS_Processor(myobject)
-myprocessor.Surface_status_info_generator()
+# myprocessor.Surface_status_info_generator()
 myprocessor.Climate_forcing_info_generator()
-myprocessor.ancillary_info_generator()
+# myprocessor.ancillary_info_generator()
 
 
-mysurfaceinfo= surfaceinfo.Surface_status_info(myobject)
-mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
-mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
-mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
+# mysurfaceinfo= surfaceinfo.Surface_status_info(myobject)
+# mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
+# mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
+# mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()

@@ -21,154 +21,154 @@ class Surface_status_info:
                 
         eng = matlab.engine.start_matlab()
                 
-        tf = eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"VIS") 
+        eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"VIS",nargout=0) 
         
-        tf = eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"NIR") 
+        eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"NIR",nargout=0) 
         
-        tf = eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"SW") 
+        eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"SW",nargout=0) 
         
-        tf = eng.f_NDVI(self._bessObject.Year,self._bessObject.Month)  
+        eng.f_NDVI(self._bessObject.Year,self._bessObject.Month,nargout=0)  
         
-        tf = eng.f_EMIS(self._bessObject.Year,self._bessObject.Month)
+        eng.f_EMIS(self._bessObject.Year,self._bessObject.Month,nargout=0)
         
-        tf = eng.f_AverageMonthly('RVIS_MCD^',self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('RVIS_MCD^',self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_AverageMonthly('RNIR_MCD^',self._bessObject.Year,self._bessObject.Month,0) 
+        eng.f_AverageMonthly('RNIR_MCD^',self._bessObject.Year,self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_AverageMonthly("RSW_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly("RSW_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_AverageMonthly("NDVI_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly("NDVI_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_AverageMonthly("EMIS_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_AverageMonthly("EMIS_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_VariationMonthly("RNIR_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_VariationMonthly("RNIR_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_VariationMonthly("RSW_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_VariationMonthly("RSW_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_VariationMonthly("NDVI_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0)  
+        eng.f_VariationMonthly("NDVI_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)  
         
-        tf = eng.f_VariationMonthly("EMIS_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_VariationMonthly("EMIS_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0)
+        eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,1) 
+        eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,1,nargout=0) 
         
-        tf = eng.f_RefDaily("RNIR_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0)
+        eng.f_RefDaily("RNIR_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_RefDaily("RNIR_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,1) 
+        eng.f_RefDaily("RNIR_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,1,nargout=0) 
         
-        tf = eng.f_RefDaily("RSW_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0)
+        eng.f_RefDaily("RSW_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_RefDaily("RSW_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,1) 
+        eng.f_RefDaily("RSW_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,1,nargout=0) 
         
-        tf = eng.f_RefDaily("NDVI_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0)
+        eng.f_RefDaily("NDVI_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_RefDaily("NDVI_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,1)
+        eng.f_RefDaily("NDVI_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,1,nargout=0)
         								  
-        tf = eng.f_RefDaily("EMIS_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0)
+        eng.f_RefDaily("EMIS_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_RefDaily("EMIS_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,1) 
+        eng.f_RefDaily("EMIS_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,1,nargout=0) 
         						  
-        tf = eng.f_LAIFPAR(self._bessObject.Year,
-        						  self._bessObject.Month,'LAI') 
+        eng.f_LAIFPAR(self._bessObject.Year,
+        						  self._bessObject.Month,'LAI',nargout=0) 
         
-        tf = eng.f_LAIFPAR(self._bessObject.Year,
-        						  self._bessObject.Month,'FPAR') 
+        eng.f_LAIFPAR(self._bessObject.Year,
+        						  self._bessObject.Month,'FPAR',nargout=0) 
         
-        tf = eng.f_LAIFPAR('LAI_MCD^', self._bessObject.Year,
-        						  self._bessObject.Month,0)        
+        eng.f_LAIFPAR('LAI_MCD^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)        
         
-        tf = eng.f_LAIFPARFilter('FPAR_MCD^', self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_LAIFPARFilter('FPAR_MCD^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_AverageMonthly('LAI_MCD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,0)  
+        eng.f_AverageMonthly('LAI_MCD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)  
         
-        tf = eng.f_AverageMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,0)          
+        eng.f_AverageMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)          
         
-        tf = eng.f_VariationMonthly('LAI_MCD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_VariationMonthly('LAI_MCD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_VariationMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_VariationMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
          
-        tf = eng.f_LAIFPARDaily('LAI_MCD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_LAIFPARDaily('LAI_MCD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
          
-        tf = eng.f_LAIFPARDaily('FPAR_MCD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,0)
+        eng.f_LAIFPARDaily('FPAR_MCD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_LAIFPARFilter('LAI_MOD^', self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_LAIFPARFilter('LAI_MOD^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         
-        tf = eng.f_LAIFPARFilter('FPAR_MOD^', self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_LAIFPARFilter('FPAR_MOD^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
          
-        tf = eng.f_LAIFPARFilter('LAI_MOD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,2)          
+        eng.f_LAIFPARFilter('LAI_MOD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,2,nargout=0)          
         
-        tf = eng.f_AverageMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,2) 
+        eng.f_AverageMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,2,nargout=0) 
         
-        tf = eng.f_VariationMonthly('LAI_MOD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,2) 
+        eng.f_VariationMonthly('LAI_MOD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,2,nargout=0) 
         						  
-        tf = eng.f_VariationMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,2) 
+        eng.f_VariationMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,2,nargout=0) 
         
-        tf = eng.f_LAIFPARDaily('LAI_MOD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_LAIFPARDaily('LAI_MOD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         								  
-        tf = eng.f_LAIFPARDaily('FPAR_MOD_Filter^', self._bessObject.Year,
-        						  self._bessObject.Month,0) 
+        eng.f_LAIFPARDaily('FPAR_MOD_Filter^', self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
         						  
-        tf = eng.f_LSTDay(self._bessObject.Year,
-        						  self._bessObject.Month,0,'MOD') 
+        eng.f_LSTDay(self._bessObject.Year,
+        						  self._bessObject.Month,0,'MOD',nargout=0) 
         
-        tf = eng.f_LSTDay(self._bessObject.Year,
-        						  self._bessObject.Month,0,'MYD') 
+        eng.f_LSTDay(self._bessObject.Year,
+        						  self._bessObject.Month,0,'MYD',nargout=0) 
         						  
-        tf = eng.f_LSTNight(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_LSTNight(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
-        tf = eng.f_VTCI(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_VTCI(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
-        tf = eng.f_AMSR2(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_AMSR2(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
-        tf = eng.f_SMAP(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_SMAP(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
-        tf = eng.f_SMOS(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_SMOS(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
-        tf = eng.f_SM0(self._bessObject.Year, self._bessObject.Month)         
+        eng.f_SM0(self._bessObject.Year, self._bessObject.Month,nargout=0)         
         
-        tf = eng.f_SMDaily(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_SMDaily(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
-        tf = eng.f_Lag30('SM_Daily',self._bessObject.Year, self._bessObject.Month) 
+        eng.f_Lag30('SM_Daily',self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
-        tf = eng.f_Lag30('LST_MOD^',self._bessObject.Year, self._bessObject.Month,0)  
+        eng.f_Lag30('LST_MOD^',self._bessObject.Year, self._bessObject.Month,0,nargout=0)  
         
-        tf = eng.f_Lag30('LST_MYD^',self._bessObject.Year, self._bessObject.Month,0) 
+        eng.f_Lag30('LST_MYD^',self._bessObject.Year, self._bessObject.Month,0,nargout=0) 
         
         eng.quit()   
     
@@ -183,7 +183,7 @@ class Surface_status_info:
         # f_ALB(year,month,'VIS');         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"VIS") 
+        eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"VIS",nargout=0) 
         
         eng.quit()
         
@@ -193,7 +193,7 @@ class Surface_status_info:
                 
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"NIR") 
+        eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"NIR",nargout=0) 
         
         eng.quit()
         
@@ -203,7 +203,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"SW") 
+        eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"SW",nargout=0) 
         
         eng.quit()
         
@@ -213,7 +213,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_NDVI(self._bessObject.Year,self._bessObject.Month) 
+        eng.f_NDVI(self._bessObject.Year,self._bessObject.Month,nargout=0) 
         
         eng.quit()
         
@@ -223,7 +223,7 @@ class Surface_status_info:
     
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_EMIS(self._bessObject.Year,self._bessObject.Month) 
+        eng.f_EMIS(self._bessObject.Year,self._bessObject.Month,nargout=0) 
         
         eng.quit()
     
@@ -233,8 +233,8 @@ class Surface_status_info:
     
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('RVIS_MCD^',self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('RVIS_MCD^',self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -245,7 +245,7 @@ class Surface_status_info:
     
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('RNIR_MCD^',self._bessObject.Year,self._bessObject.Month,0) 
+        eng.f_AverageMonthly('RNIR_MCD^',self._bessObject.Year,self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -255,8 +255,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly("RSW_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly("RSW_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -266,8 +266,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly("NDVI_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly("NDVI_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
     
@@ -277,8 +277,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly("EMIS_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly("EMIS_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -288,8 +288,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -299,8 +299,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly("RNIR_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_VariationMonthly("RNIR_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -310,8 +310,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly("RSW_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_VariationMonthly("RSW_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
     
@@ -321,8 +321,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly("NDVI_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_VariationMonthly("NDVI_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
     
@@ -332,8 +332,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly("EMIS_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_VariationMonthly("EMIS_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
     
@@ -344,11 +344,11 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0)
+        eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,1) 
+        eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,1,nargout=0) 
         
         eng.quit()
         
@@ -359,11 +359,11 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RefDaily("RNIR_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0)
+        eng.f_RefDaily("RNIR_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_RefDaily("RNIR_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,1) 
+        eng.f_RefDaily("RNIR_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,1,nargout=0) 
         
         eng.quit()
         
@@ -374,11 +374,11 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RefDaily("RSW_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0)
+        eng.f_RefDaily("RSW_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_RefDaily("RSW_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,1) 
+        eng.f_RefDaily("RSW_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,1,nargout=0) 
         
         eng.quit()
         
@@ -390,11 +390,11 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RefDaily("NDVI_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0)
+        eng.f_RefDaily("NDVI_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_RefDaily("NDVI_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,1) 
+        eng.f_RefDaily("NDVI_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,1,nargout=0) 
         
         eng.quit()
         
@@ -406,11 +406,11 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_RefDaily("EMIS_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,0)
+        eng.f_RefDaily("EMIS_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0)
         
-        tf = eng.f_RefDaily("EMIS_MCD^",self._bessObject.Year,
-                                  self._bessObject.Month,1) 
+        eng.f_RefDaily("EMIS_MCD^",self._bessObject.Year,
+                                  self._bessObject.Month,1,nargout=0) 
         
         eng.quit()
         
@@ -420,8 +420,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPAR(self._bessObject.Year,
-                                  self._bessObject.Month,'LAI') 
+        eng.f_LAIFPAR(self._bessObject.Year,
+                                  self._bessObject.Month,'LAI',nargout=0) 
         
         eng.quit()
     
@@ -431,8 +431,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPAR(self._bessObject.Year,
-                                  self._bessObject.Month,'FPAR') 
+        eng.f_LAIFPAR(self._bessObject.Year,
+                                  self._bessObject.Month,'FPAR',nargout=0) 
         
         eng.quit()
         
@@ -442,8 +442,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPAR('LAI_MCD^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_LAIFPAR('LAI_MCD^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -452,8 +452,8 @@ class Surface_status_info:
         # f_LAIFPARFilter('FPAR_MCD^',year,month,0);   
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPARFilter('FPAR_MCD^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_LAIFPARFilter('FPAR_MCD^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
 
@@ -464,8 +464,8 @@ class Surface_status_info:
          
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('LAI_MCD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('LAI_MCD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -475,8 +475,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_AverageMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -486,8 +486,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly('LAI_MCD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_VariationMonthly('LAI_MCD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -498,8 +498,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_VariationMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -509,8 +509,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPARDaily('LAI_MCD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_LAIFPARDaily('LAI_MCD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -521,8 +521,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPARDaily('FPAR_MCD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_LAIFPARDaily('FPAR_MCD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -533,8 +533,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPARFilter('LAI_MOD^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_LAIFPARFilter('LAI_MOD^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -544,8 +544,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPARFilter('FPAR_MOD^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_LAIFPARFilter('FPAR_MOD^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit()
         
@@ -555,8 +555,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPARFilter('LAI_MOD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,2) 
+        eng.f_LAIFPARFilter('LAI_MOD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,2,nargout=0) 
         
         eng.quit()
     
@@ -566,8 +566,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AverageMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,2) 
+        eng.f_AverageMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,2,nargout=0) 
         
         eng.quit() 
         
@@ -577,8 +577,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly('LAI_MOD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,2) 
+        eng.f_VariationMonthly('LAI_MOD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,2,nargout=0) 
         
         eng.quit() 
         
@@ -588,8 +588,8 @@ class Surface_status_info:
 
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VariationMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,2) 
+        eng.f_VariationMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,2,nargout=0) 
         
         eng.quit() 
         
@@ -599,8 +599,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPARDaily('LAI_MOD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_LAIFPARDaily('LAI_MOD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit() 
         
@@ -610,8 +610,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LAIFPARDaily('FPAR_MOD_Filter^', self._bessObject.Year,
-                                  self._bessObject.Month,0) 
+        eng.f_LAIFPARDaily('FPAR_MOD_Filter^', self._bessObject.Year,
+                                  self._bessObject.Month,0,nargout=0) 
         
         eng.quit() 
         
@@ -621,8 +621,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LSTDay(self._bessObject.Year,
-                                  self._bessObject.Month,0,'MOD') 
+        eng.f_LSTDay(self._bessObject.Year,
+                                  self._bessObject.Month,0,'MOD',nargout=0) 
         
         eng.quit() 
         
@@ -632,8 +632,8 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LSTDay(self._bessObject.Year,
-                                  self._bessObject.Month,0,'MYD') 
+        eng.f_LSTDay(self._bessObject.Year,
+                                  self._bessObject.Month,0,'MYD',nargout=0) 
         
         eng.quit() 
         
@@ -643,7 +643,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_LSTNight(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_LSTNight(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
         eng.quit() 
         
@@ -653,7 +653,7 @@ class Surface_status_info:
 
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_VTCI(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_VTCI(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
         eng.quit() 
         
@@ -663,7 +663,7 @@ class Surface_status_info:
 
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_AMSR2(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_AMSR2(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
         eng.quit() 
         
@@ -674,7 +674,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_SMAP(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_SMAP(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
         eng.quit() 
         
@@ -684,7 +684,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_SMOS(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_SMOS(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
         eng.quit() 
         
@@ -694,7 +694,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_SM0(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_SM0(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
         eng.quit() 
         
@@ -704,7 +704,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_SMDaily(self._bessObject.Year, self._bessObject.Month) 
+        eng.f_SMDaily(self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
         eng.quit() 
         
@@ -714,7 +714,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_Lag30('SM_Daily',self._bessObject.Year, self._bessObject.Month) 
+        eng.f_Lag30('SM_Daily',self._bessObject.Year, self._bessObject.Month,nargout=0) 
         
         eng.quit() 
         
@@ -724,7 +724,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_Lag30('LST_MOD^',self._bessObject.Year, self._bessObject.Month,0) 
+        eng.f_Lag30('LST_MOD^',self._bessObject.Year, self._bessObject.Month,0,nargout=0) 
         
         eng.quit() 
     
@@ -734,7 +734,7 @@ class Surface_status_info:
         
         eng = matlab.engine.start_matlab()
         
-        tf = eng.f_Lag30('LST_MYD^',self._bessObject.Year, self._bessObject.Month,0) 
+        eng.f_Lag30('LST_MYD^',self._bessObject.Year, self._bessObject.Month,0,nargout=0) 
         
         eng.quit() 
         
