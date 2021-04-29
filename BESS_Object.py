@@ -12,8 +12,8 @@ class  BESS_Object:
      
        self.Path         = "../"          
        self.Year = Year  
-       self.Month         = Month  
-       self.Day           = Day
+       self.Month         = "{:02d}".format(Month)  
+       self.Day           = "{:02d}".format(Day)  
        self.OperationType = OperationType
        self.Period        = "MODIS"
         
