@@ -8,12 +8,12 @@ Created on Fri Mar 19 15:20:29 2021
 """
 
 class  BESS_Object:           
-   def __init__(self, Year,Month,Day,OperationType):
+   def __init__(self, Year,Month,OperationType):
      
        self.Path         = "../"          
        self.Year = Year  
        self.Month         = "{:02d}".format(Month)  
-       self.Day           = "{:02d}".format(Day)  
+       #self.Day           = "{:02d}".format(Day)
        self.OperationType = OperationType
        self.Period        = "MODIS"
         

@@ -12,22 +12,19 @@ import BESS_Processor as processor
 import Surface_status_info as surfaceinfo
 import Climate_forcing_info as climateinfo
 import ancillary_info as ancillaryinfo
-
-
  
-myobject = _bess.BESS_Object(2021,2,15,"005") 
-
-# mygenerator= generator.BESS_Generate(myobject)
-# mygenerator.Generate_GPP_ET_005()
-# mygenerator.Generate_GPP_ET_30s()
+myobject = _bess.BESS_Object(2021,2,"005")
 
 myprocessor= processor.BESS_Processor(myobject)
 myprocessor.Surface_status_info_generator()
-#myprocessor.Climate_forcing_info_generator()
-# myprocessor.ancillary_info_generator()
+myprocessor.Climate_forcing_info_generator()
+myprocessor.ancillary_info_generator()
 
+mygenerator= generator.BESS_Generate(myobject)
+mygenerator.Generate_GPP_ET_005()
+mygenerator.Generate_GPP_ET_30s()
 
-# mysurfaceinfo= surfaceinfo.Surface_status_info(myobject)
-# mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
-# mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
-# mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
+mysurfaceinfo= surfaceinfo.Surface_status_info(myobject)
+mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
+mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
+mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
