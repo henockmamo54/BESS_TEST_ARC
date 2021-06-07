@@ -13,11 +13,11 @@ class  BESS_Object:
        self.Path         = "../"          
        self.Year = Year  
        self.Month         = Month 
-       self.self.Day           = "" 
-       self.self.OperationType = ""
+       self.Day           = "" 
+       self.OperationType = ""
        self.Period        = "MODIS"
         
-       self.OverpassMOD  = self.Path + "Ancillary/OverpassMOD.{}.mat".format(self.self.OperationType) 
+       self.OverpassMOD  = self.Path + "Ancillary/OverpassMOD.{}.mat".format(self.OperationType) 
        self.OverpassMYD  = self.Path + "Ancillary/OverpassMYD.{}.mat".format(self.OperationType)  
        self.LAT          = self.Path + "Ancillary/LAT.{}.mat".format(self.OperationType)        
        self.ALT          = self.Path + "Ancillary/ALT.{}.mat".format(self.OperationType)   
