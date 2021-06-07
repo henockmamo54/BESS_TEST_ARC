@@ -2,3 +2,6 @@
 downloader/LAT.005d.mat
 downloader/LON.005d.mat
 temp/LAT.005d.mat
+scripts/downloader/LON.005d.mat
+scripts/downloader/LAT.005d.mat
+*.mat
