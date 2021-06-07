@@ -318,11 +318,7 @@ class Climate_forcing_info:
      
         
     def validate():
-        print("Validation")
-        
-          
-        
-        
+        print("Validation")           
   
     def ssrd(self):    
         '''#disp('ssrd','t2m','d2m',year,month)
@@ -332,9 +328,7 @@ class Climate_forcing_info:
         
         eng.f_ERA(self._bessObject.Year,self._bessObject.Month,nargout=0)
         
-        eng.quit()
-        
-        
+        eng.quit()        
 
   
     def Ta_Daily(self):        
@@ -344,8 +338,7 @@ class Climate_forcing_info:
         eng = matlab.engine.start_matlab()
         
         eng.f_DownscaleERA5Daily(self._bessObject.Year,
-                                      self._bessObject.Month,'Ta',nargout=0)
-        
+                                      self._bessObject.Month,'Ta',nargout=0)        
         eng.quit()
         
         

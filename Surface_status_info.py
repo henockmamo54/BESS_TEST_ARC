@@ -67,16 +67,19 @@ class Surface_status_info:
             print("Unexpected error:", sys.exc_info()[0])
        
         # try:    
-            # print( "5 -0")
-            # eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month,nargout=0);
+        #     print( "5 -0")
+        #     eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month,nargout=0);
         # except:
-            # print("Unexpected error:", sys.exc_info()[0])
+        #     print("Unexpected error:", sys.exc_info()[0])
         
         # try:
-            # print( "5 -01")
-            # eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month+1,nargout=0);
+        #     print( "5 -01")
+        #     if(self._bessObject.Month == 12):
+        #         eng.BESSRadiation(self._bessObject.Year+1,1,nargout=0)
+        #     else:
+        #         eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month+1,nargout=0);
         # except:
-            # print("Unexpected error:", sys.exc_info()[0])
+        #     print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("5")
