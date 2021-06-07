@@ -15,7 +15,7 @@ import ancillary_info as ancillaryinfo
 
 
  
-myobject = _bess.BESS_Object(2021,1,15,"005") 
+myobject = _bess.BESS_Object(2021,1) 
 
 # mygenerator= generator.BESS_Generate(myobject)
 # mygenerator.Generate_GPP_ET_005()
