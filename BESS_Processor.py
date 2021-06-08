@@ -16,14 +16,22 @@ class BESS_Processor:
         self._surfacestatusObject = surfaceinfo(self._bessObject)
         self._climateForcingInfoObject = climateinfo(self._bessObject)
 
-    def Surface_status_info_generator(self):
-        print("from =>> Surface_status_info_generator")
-        self._surfacestatusObject.generate_all_surface_info()
-        
+    def Surface_status_info_generator_monthly(self):
+        print("from =>> Surface_status_info_generator Monthly")
+        self._surfacestatusObject.generate_all_surface_info_monthly(self._bessObject.Year,self._bessObject.Month)
     
-    def Climate_forcing_info_generator(self):
-        print("from =>> Climate_forcing_info_generator")
-        self._climateForcingInfoObject.generate_all_climate_forcing_info()
+    def Surface_status_info_generator_yearly(self):
+        print("from =>> Surface_status_info_generator Yearly") 
+        self._surfacestatusObject.generate_all_surface_info_yearly(self._bessObject.Year)
+           
+    
+    def Climate_forcing_info_generator_monthly(self):
+        print("from =>> Climate_forcing_info_generator Monthly")
+        self._climateForcingInfoObject.generate_all_climate_forcing_info_monthly(self._bessObject.Year,self._bessObject.Month)
+        
+    def Climate_forcing_info_generator_yearly(self):
+        print("from =>> Climate_forcing_info_generator Yearly")
+        self._climateForcingInfoObject.generate_all_climate_forcing_info_yearly(self._bessObject.Year)
         
     
     def ancillary_info_generator(self):

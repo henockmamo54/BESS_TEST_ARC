@@ -17,457 +17,465 @@ class Surface_status_info:
         self._bessObject=_bessObject
         print("Surface_status_info")
         
-    def generate_all_surface_info(self):
-        print("Surface_status_info")
+    def generate_all_surface_info_monthly(self,year,month) :
+
+        print("generate_all_surface_info_monthly\n","====><><><><><====== \n", year, month)
+        
         
         eng = matlab.engine.start_matlab()
         
         try:
             print("1")
-            eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"VIS",nargout=0) 
+            eng.f_ALB(year,month,"VIS",nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("2")
-            eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"NIR",nargout=0) 
+            eng.f_ALB(year,month,"NIR",nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:    
             print("3")
-            eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"SW",nargout=0) 
+            eng.f_ALB(year,month,"SW",nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("4")
-            eng.f_NDVI(self._bessObject.Year,self._bessObject.Month,nargout=0)  
+            eng.f_NDVI(year,month,nargout=0)  
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:    
             print("4 - 2")
-            if(self._bessObject.Month == 12):
-                eng.f_NDVI(self._bessObject.Year+1,1,nargout=0)
+            if(month == 12):
+                eng.f_NDVI(year+1,1,nargout=0)
             else:
-                eng.f_NDVI(self._bessObject.Year,self._bessObject.Month+1,nargout=0)
+                eng.f_NDVI(year,month+1,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:    
             print("4 - 3")
-            if(self._bessObject.Month == 12):
-                eng.f_NDVI(self._bessObject.Year+1,2,nargout=0)
-            elif(self._bessObject.Month == 11):
-                eng.f_NDVI(self._bessObject.Year+1,1,nargout=0)
+            if(month == 12):
+                eng.f_NDVI(year+1,2,nargout=0)
+            elif(month == 11):
+                eng.f_NDVI(year+1,1,nargout=0)
             else:
-                eng.f_NDVI(self._bessObject.Year,self._bessObject.Month+2,nargout=0)
+                eng.f_NDVI(year,month+2,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
-       
-        # try:    
-        #     print( "5 -0")
-        #     eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month,nargout=0);
-        # except:
-        #     print("Unexpected error:", sys.exc_info()[0])
+    
+        try:    
+            print( "5 -0")
+            eng.BESSRadiation(year,month,nargout=0);
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
         
-        # try:
-        #     print( "5 -01")
-        #     if(self._bessObject.Month == 12):
-        #         eng.BESSRadiation(self._bessObject.Year+1,1,nargout=0)
-        #     else:
-        #         eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month+1,nargout=0);
-        # except:
-        #     print("Unexpected error:", sys.exc_info()[0])
+        try:
+            print( "5 -01")
+            if(month == 12):
+                eng.BESSRadiation(year+1,1,nargout=0)
+            else:
+                eng.BESSRadiation(year,month+1,nargout=0);
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("5")
-            eng.f_EMIS(self._bessObject.Year,self._bessObject.Month,nargout=0)
+            eng.f_EMIS(year,month,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("5 - 2")
-            if(self._bessObject.Month == 12):
-                eng.f_EMIS(self._bessObject.Year+1,1,nargout=0)
+            if(month == 12):
+                eng.f_EMIS(year+1,1,nargout=0)
             else:
-                eng.f_EMIS(self._bessObject.Year,self._bessObject.Month+1,nargout=0)
+                eng.f_EMIS(year,month+1,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         
         try:
             print("6")
-            eng.f_AverageMonthly('RVIS_MCD^',self._bessObject.Year,
-                                      self._bessObject.Month,0,nargout=0) 
+            eng.f_AverageMonthly('RVIS_MCD^',year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         
         try:
             print("7")
-            eng.f_AverageMonthly('RNIR_MCD^',self._bessObject.Year,self._bessObject.Month,0,nargout=0) 
+            eng.f_AverageMonthly('RNIR_MCD^',year,month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
             
         try:
-            eng.f_AverageMonthly("RSW_MCD^",self._bessObject.Year,
-                                      self._bessObject.Month,0,nargout=0) 
+            eng.f_AverageMonthly("RSW_MCD^",year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:
             print("8")
-            eng.f_AverageMonthly("NDVI_MCD^",self._bessObject.Year,
-                                      self._bessObject.Month,0,nargout=0) 
+            eng.f_AverageMonthly("NDVI_MCD^",year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:
-            eng.f_AverageMonthly("EMIS_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0,nargout=0)                                        
+            eng.f_AverageMonthly("EMIS_MCD^",year,
+                                month,0,nargout=0)                                        
         except:
             print("Unexpected error:", sys.exc_info()[0])
                                         
         try:
             print("9")
-            eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
-                                      self._bessObject.Month,0,nargout=0) 
+            eng.f_VariationMonthly("RVIS_MCD^",year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:         
-            eng.f_VariationMonthly("RNIR_MCD^",self._bessObject.Year,
-        						  self._bessObject.Month,0,nargout=0) 
+            eng.f_VariationMonthly("RNIR_MCD^",year,
+                                month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:
             print("10")
-            eng.f_VariationMonthly("RSW_MCD^",self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_VariationMonthly("RSW_MCD^",year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("11")
-            eng.f_VariationMonthly("NDVI_MCD^",self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)  
+            eng.f_VariationMonthly("NDVI_MCD^",year,
+                                    month,0,nargout=0)  
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:    
             print("12")
-            eng.f_VariationMonthly("EMIS_MCD^",self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_VariationMonthly("EMIS_MCD^",year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:
             print("12-1")
-            eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)
+            eng.f_VariationMonthly("RVIS_MCD^",year,
+                                    month,0,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("13")
-            eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
-            						  self._bessObject.Month,1,nargout=0) 
+            eng.f_VariationMonthly("RVIS_MCD^",year,
+                                    month,1,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("14")
-            eng.f_RefDaily("RNIR",self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)
+            eng.f_RefDaily("RNIR",year,
+                                    month,0,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
         #-----> the daily output requires next month data
             print("14-2")
-            if(self._bessObject.Month == 12):
-                eng.f_RefDaily("RNIR",self._bessObject.Year+1,
+            if(month == 12):
+                eng.f_RefDaily("RNIR",year+1,
                                 1,0,nargout=0)
             else:
-                eng.f_RefDaily("RNIR",self._bessObject.Year,
-        						  self._bessObject.Month+1,0,nargout=0)
+                eng.f_RefDaily("RNIR",year,
+                                month+1,0,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
-						  
+                        
         try:
             print("15")
-            eng.f_RefDaily("RNIR",self._bessObject.Year,
-            						  self._bessObject.Month,1,nargout=0) 
+            eng.f_RefDaily("RNIR",year,
+                                    month,1,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:    
             print("16-1")
-            eng.f_RefDaily("RSW",self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)            
+            eng.f_RefDaily("RSW",year,
+                                    month,0,nargout=0)            
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("16-2")
-            if(self._bessObject.Month == 12):
-                eng.f_RefDaily("RSW",self._bessObject.Year+1,
-            						  1,0,nargout=0)
+            if(month == 12):
+                eng.f_RefDaily("RSW",year+1,
+                                    1,0,nargout=0)
             else:
-                eng.f_RefDaily("RSW",self._bessObject.Year,
-        						  self._bessObject.Month+1,0,nargout=0)
+                eng.f_RefDaily("RSW",year,
+                                month+1,0,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("16-3")
-            eng.f_RefDaily("RSW",self._bessObject.Year,
-            						  self._bessObject.Month,1,nargout=0) 
+            eng.f_RefDaily("RSW",year,
+                                    month,1,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("17")
-            eng.f_RefDaily("NDVI",self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)
+            eng.f_RefDaily("NDVI",year,
+                                    month,0,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:                               
             print("17 - 2 ")
-            if(self._bessObject.Month == 12):
-                eng.f_RefDaily("NDVI",self._bessObject.Year+1,
-            						  1,0,nargout=0)
+            if(month == 12):
+                eng.f_RefDaily("NDVI",year+1,
+                                    1,0,nargout=0)
             else:
-                eng.f_RefDaily("NDVI",self._bessObject.Year,
-            						  self._bessObject.Month+1,0,nargout=0)
+                eng.f_RefDaily("NDVI",year,
+                                    month+1,0,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:   
             print("18")
-            eng.f_RefDaily("NDVI",self._bessObject.Year,
-            						  self._bessObject.Month,1,nargout=0)
+            eng.f_RefDaily("NDVI",year,
+                                    month,1,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("19")								  
-            eng.f_RefDaily("EMIS",self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)
+            eng.f_RefDaily("EMIS",year,
+                                    month,0,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("19-1")								  
-            eng.f_RefDaily("EMIS",self._bessObject.Year,
-            						  self._bessObject.Month+1,0,nargout=0)
+            eng.f_RefDaily("EMIS",year,
+                                    month+1,0,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("19-2")
-            eng.f_RefDaily("EMIS",self._bessObject.Year,
-            						  self._bessObject.Month,1,nargout=0) 
+            eng.f_RefDaily("EMIS",year,
+                                    month,1,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("20")						  
-            eng.f_LAIFPAR(self._bessObject.Year,
-            						  self._bessObject.Month,'LAI',nargout=0) 
+            eng.f_LAIFPAR(year,
+                                    month,'LAI',nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("21")
-            eng.f_LAIFPAR(self._bessObject.Year,
-            						  self._bessObject.Month,'FPAR',nargout=0) 
+            eng.f_LAIFPAR(year,
+                                    month,'FPAR',nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("22")
-            eng.f_LAIFPARFilter('LAI_MCD^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)     
+            eng.f_LAIFPARFilter('LAI_MCD^', year,
+                                    month,0,nargout=0)     
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("23")
-            eng.f_LAIFPARFilter('FPAR_MCD^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_LAIFPARFilter('FPAR_MCD^', year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])    
         
         try:
             print("24")
-            eng.f_AverageMonthly('LAI_MCD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)  
+            eng.f_AverageMonthly('LAI_MCD_Filter^', year,
+                                    month,0,nargout=0)  
         except:
             print("Unexpected error:", sys.exc_info()[0])
-         
+        
         try:
             print("25")
-            eng.f_AverageMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)  
+            eng.f_AverageMonthly('FPAR_MCD_Filter^', year,
+                                    month,0,nargout=0)  
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:            
             print("26")
-            eng.f_VariationMonthly('LAI_MCD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_VariationMonthly('LAI_MCD_Filter^', year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("27")
-            eng.f_VariationMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_VariationMonthly('FPAR_MCD_Filter^', year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("28") 
-            eng.f_LAIFPARDaily('LAI_MCD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_LAIFPARDaily('LAI_MCD_Filter^', year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("28 - 2 ") 
-            eng.f_LAIFPARDaily('FPAR_MCD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0)
+            eng.f_LAIFPARDaily('FPAR_MCD_Filter^', year,
+                                    month,0,nargout=0)
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("29")
-            eng.f_LAIFPARFilter('LAI_MOD^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_LAIFPARFilter('LAI_MOD^', year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("30")
-            eng.f_LAIFPARFilter('FPAR_MOD^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_LAIFPARFilter('FPAR_MOD^', year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("31")
-            eng.f_AverageMonthly('LAI_MOD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,2,nargout=0)    
+            eng.f_AverageMonthly('LAI_MOD_Filter^', year,
+                                    month,2,nargout=0)    
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("32")
-            eng.f_AverageMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,2,nargout=0) 
+            eng.f_AverageMonthly('FPAR_MOD_Filter^', year,
+                                    month,2,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:
             print("33")
-            eng.f_VariationMonthly('LAI_MOD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,2,nargout=0) 
+            eng.f_VariationMonthly('LAI_MOD_Filter^', year,
+                                    month,2,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
-        	
+            
         try:
             print("34")					  
-            eng.f_VariationMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,2,nargout=0) 
+            eng.f_VariationMonthly('FPAR_MOD_Filter^', year,
+                                    month,2,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("35")
-            eng.f_LAIFPARDaily('LAI_MOD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_LAIFPARDaily('LAI_MOD_Filter^', year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:
             print("35 - 1")								  
-            eng.f_LAIFPARDaily('FPAR_MOD_Filter^', self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_LAIFPARDaily('FPAR_MOD_Filter^', year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
             
         try:
             print("36 - 0")				  
-            eng.f_NOAH(self._bessObject.Year,
-            						  self._bessObject.Month,0,nargout=0) 
+            eng.f_NOAH(year,
+                                    month,0,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
-                                  
+                                
         try:                         
             print("36")				  
-            eng.f_LSTDay(self._bessObject.Year,
-            						  self._bessObject.Month,0,'MOD',nargout=0) 
+            eng.f_LSTDay(year,
+                                    month,0,'MOD',nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("37")
-            eng.f_LSTDay(self._bessObject.Year,
-            						  self._bessObject.Month,0,'MYD',nargout=0) 
+            eng.f_LSTDay(year,
+                                    month,0,'MYD',nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("38")					  
-            eng.f_LSTNight(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+            eng.f_LSTNight(year, month,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("39")
-            eng.f_VTCI(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+            eng.f_VTCI(year, month,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("40")
-            eng.f_AMSR2(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+            eng.f_AMSR2(year, month,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         try:
             print("41")
-            eng.f_SMAP(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+            eng.f_SMAP(year, month,nargout=0) 
         except:
             print("Unexpected error:", sys.exc_info()[0])
         
         # print("42")
-        # eng.f_SMOS(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+        # eng.f_SMOS(year, month,nargout=0) 
         
         # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("43")
-        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_SM0(self._bessObject.Year, self._bessObject.Month,nargout=0)         
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_SM0(year, month,nargout=0)         
         
         # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("44")
-        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_SMDaily(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_SMDaily(year, month,nargout=0) 
         
         # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("45")
-        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_Lag30('SM_Daily',self._bessObject.Year, self._bessObject.Month,nargout=0) 
-        	
-                	
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_Lag30('SM_Daily',year, month,nargout=0) 
+            
+                    
         # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("46")
-        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_LSTFill('LST_MOD^',self._bessObject.Year, self._bessObject.Month,0,nargout=0)  
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_LSTFill('LST_MOD^',year, month,0,nargout=0)  
         
         # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("47")
-        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_LSTFill('LST_MYD^',self._bessObject.Year, self._bessObject.Month,0,nargout=0) 
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_LSTFill('LST_MYD^',year, month,0,nargout=0) 
         
         eng.quit()   
+         
     
+    def generate_all_surface_info_yearly(self,year) :
+        
+        for i in range(13):
+            print(i)
+            self.generate_all_surface_info_monthly(year,i) 
         
     
     def validate():
@@ -1034,3 +1042,454 @@ class Surface_status_info:
         
         eng.quit() 
         
+    def generate_all_surface_info(self):
+        print("Surface_status_info")
+        
+        eng = matlab.engine.start_matlab()
+        
+        try:
+            print("1")
+            eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"VIS",nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("2")
+            eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"NIR",nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:    
+            print("3")
+            eng.f_ALB(self._bessObject.Year,self._bessObject.Month,"SW",nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("4")
+            eng.f_NDVI(self._bessObject.Year,self._bessObject.Month,nargout=0)  
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:    
+            print("4 - 2")
+            if(self._bessObject.Month == 12):
+                eng.f_NDVI(self._bessObject.Year+1,1,nargout=0)
+            else:
+                eng.f_NDVI(self._bessObject.Year,self._bessObject.Month+1,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:    
+            print("4 - 3")
+            if(self._bessObject.Month == 12):
+                eng.f_NDVI(self._bessObject.Year+1,2,nargout=0)
+            elif(self._bessObject.Month == 11):
+                eng.f_NDVI(self._bessObject.Year+1,1,nargout=0)
+            else:
+                eng.f_NDVI(self._bessObject.Year,self._bessObject.Month+2,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+       
+        # try:    
+        #     print( "5 -0")
+        #     eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month,nargout=0);
+        # except:
+        #     print("Unexpected error:", sys.exc_info()[0])
+        
+        # try:
+        #     print( "5 -01")
+        #     if(self._bessObject.Month == 12):
+        #         eng.BESSRadiation(self._bessObject.Year+1,1,nargout=0)
+        #     else:
+        #         eng.BESSRadiation(self._bessObject.Year,self._bessObject.Month+1,nargout=0);
+        # except:
+        #     print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("5")
+            eng.f_EMIS(self._bessObject.Year,self._bessObject.Month,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("5 - 2")
+            if(self._bessObject.Month == 12):
+                eng.f_EMIS(self._bessObject.Year+1,1,nargout=0)
+            else:
+                eng.f_EMIS(self._bessObject.Year,self._bessObject.Month+1,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        
+        try:
+            print("6")
+            eng.f_AverageMonthly('RVIS_MCD^',self._bessObject.Year,
+                                      self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        
+        try:
+            print("7")
+            eng.f_AverageMonthly('RNIR_MCD^',self._bessObject.Year,self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+            
+        try:
+            eng.f_AverageMonthly("RSW_MCD^",self._bessObject.Year,
+                                      self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:
+            print("8")
+            eng.f_AverageMonthly("NDVI_MCD^",self._bessObject.Year,
+                                      self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:
+            eng.f_AverageMonthly("EMIS_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0)                                        
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+                                        
+        try:
+            print("9")
+            eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
+                                      self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:         
+            eng.f_VariationMonthly("RNIR_MCD^",self._bessObject.Year,
+        						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:
+            print("10")
+            eng.f_VariationMonthly("RSW_MCD^",self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("11")
+            eng.f_VariationMonthly("NDVI_MCD^",self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)  
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:    
+            print("12")
+            eng.f_VariationMonthly("EMIS_MCD^",self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:
+            print("12-1")
+            eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("13")
+            eng.f_VariationMonthly("RVIS_MCD^",self._bessObject.Year,
+            						  self._bessObject.Month,1,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("14")
+            eng.f_RefDaily("RNIR",self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+        #-----> the daily output requires next month data
+            print("14-2")
+            if(self._bessObject.Month == 12):
+                eng.f_RefDaily("RNIR",self._bessObject.Year+1,
+                                1,0,nargout=0)
+            else:
+                eng.f_RefDaily("RNIR",self._bessObject.Year,
+        						  self._bessObject.Month+1,0,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+						  
+        try:
+            print("15")
+            eng.f_RefDaily("RNIR",self._bessObject.Year,
+            						  self._bessObject.Month,1,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:    
+            print("16-1")
+            eng.f_RefDaily("RSW",self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)            
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("16-2")
+            if(self._bessObject.Month == 12):
+                eng.f_RefDaily("RSW",self._bessObject.Year+1,
+            						  1,0,nargout=0)
+            else:
+                eng.f_RefDaily("RSW",self._bessObject.Year,
+        						  self._bessObject.Month+1,0,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("16-3")
+            eng.f_RefDaily("RSW",self._bessObject.Year,
+            						  self._bessObject.Month,1,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("17")
+            eng.f_RefDaily("NDVI",self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:                               
+            print("17 - 2 ")
+            if(self._bessObject.Month == 12):
+                eng.f_RefDaily("NDVI",self._bessObject.Year+1,
+            						  1,0,nargout=0)
+            else:
+                eng.f_RefDaily("NDVI",self._bessObject.Year,
+            						  self._bessObject.Month+1,0,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:   
+            print("18")
+            eng.f_RefDaily("NDVI",self._bessObject.Year,
+            						  self._bessObject.Month,1,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("19")								  
+            eng.f_RefDaily("EMIS",self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("19-1")								  
+            eng.f_RefDaily("EMIS",self._bessObject.Year,
+            						  self._bessObject.Month+1,0,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("19-2")
+            eng.f_RefDaily("EMIS",self._bessObject.Year,
+            						  self._bessObject.Month,1,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("20")						  
+            eng.f_LAIFPAR(self._bessObject.Year,
+            						  self._bessObject.Month,'LAI',nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("21")
+            eng.f_LAIFPAR(self._bessObject.Year,
+            						  self._bessObject.Month,'FPAR',nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("22")
+            eng.f_LAIFPARFilter('LAI_MCD^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)     
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("23")
+            eng.f_LAIFPARFilter('FPAR_MCD^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])    
+        
+        try:
+            print("24")
+            eng.f_AverageMonthly('LAI_MCD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)  
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+         
+        try:
+            print("25")
+            eng.f_AverageMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)  
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:            
+            print("26")
+            eng.f_VariationMonthly('LAI_MCD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("27")
+            eng.f_VariationMonthly('FPAR_MCD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("28") 
+            eng.f_LAIFPARDaily('LAI_MCD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("28 - 2 ") 
+            eng.f_LAIFPARDaily('FPAR_MCD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0)
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("29")
+            eng.f_LAIFPARFilter('LAI_MOD^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("30")
+            eng.f_LAIFPARFilter('FPAR_MOD^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("31")
+            eng.f_AverageMonthly('LAI_MOD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,2,nargout=0)    
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("32")
+            eng.f_AverageMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,2,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:
+            print("33")
+            eng.f_VariationMonthly('LAI_MOD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,2,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        	
+        try:
+            print("34")					  
+            eng.f_VariationMonthly('FPAR_MOD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,2,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("35")
+            eng.f_LAIFPARDaily('LAI_MOD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:
+            print("35 - 1")								  
+            eng.f_LAIFPARDaily('FPAR_MOD_Filter^', self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+            
+        try:
+            print("36 - 0")				  
+            eng.f_NOAH(self._bessObject.Year,
+            						  self._bessObject.Month,0,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+                                  
+        try:                         
+            print("36")				  
+            eng.f_LSTDay(self._bessObject.Year,
+            						  self._bessObject.Month,0,'MOD',nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("37")
+            eng.f_LSTDay(self._bessObject.Year,
+            						  self._bessObject.Month,0,'MYD',nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("38")					  
+            eng.f_LSTNight(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("39")
+            eng.f_VTCI(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("40")
+            eng.f_AMSR2(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        try:
+            print("41")
+            eng.f_SMAP(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+        except:
+            print("Unexpected error:", sys.exc_info()[0])
+        
+        # print("42")
+        # eng.f_SMOS(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+        
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("43")
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_SM0(self._bessObject.Year, self._bessObject.Month,nargout=0)         
+        
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("44")
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_SMDaily(self._bessObject.Year, self._bessObject.Month,nargout=0) 
+        
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("45")
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_Lag30('SM_Daily',self._bessObject.Year, self._bessObject.Month,nargout=0) 
+        	
+                	
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("46")
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_LSTFill('LST_MOD^',self._bessObject.Year, self._bessObject.Month,0,nargout=0)  
+        
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # print("47")
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # eng.f_LSTFill('LST_MYD^',self._bessObject.Year, self._bessObject.Month,0,nargout=0) 
+        
+        eng.quit()   
+    
