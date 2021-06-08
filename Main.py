@@ -22,12 +22,16 @@ myobject = _bess.BESS_Object(2021,1)
 # mygenerator.Generate_GPP_ET_30s()
 
 myprocessor= processor.BESS_Processor(myobject)
-# myprocessor.Surface_status_info_generator()
-myprocessor.Climate_forcing_info_generator()
-# myprocessor.ancillary_info_generator()
+
+myprocessor.Surface_status_info_generator_monthly()
+# myprocessor.Surface_status_info_generator_yearly()
+
+# myprocessor.Climate_forcing_info_generator_monthly()
+# myprocessor.Climate_forcing_info_generator_yearly()
 
 
 # mysurfaceinfo= surfaceinfo.Surface_status_info(myobject)
 # mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
 # mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
 # mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
+

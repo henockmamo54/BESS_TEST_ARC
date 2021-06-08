@@ -30,11 +30,6 @@ myprocessor.Climate_forcing_info_generator_monthly()
 # myprocessor.Climate_forcing_info_generator_yearly()
 
 
-# myprocessor.Surface_status_info_generator()
-# myprocessor.Climate_forcing_info_generator()
-# myprocessor.ancillary_info_generator()
-
-
 # mysurfaceinfo= surfaceinfo.Surface_status_info(myobject)
 # mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
 # mysurfaceinfo.RVIS_Daily_RNIR_Daily_RSW_Daily()
