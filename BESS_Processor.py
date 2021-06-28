@@ -36,6 +36,22 @@ class BESS_Processor:
     
     def ancillary_info_generator(self):
         print("from =>> ancillary_info_generator")
+
+    def process_all_monthly(self):
+        print("process_all_monthly")
+        self._surfacestatusObject.generate_all_surface_info_monthly(self._bessObject.Year,self._bessObject.Month)
+        self._climateForcingInfoObject.generate_all_climate_forcing_info_monthly(self._bessObject.Year,self._bessObject.Month)
+        
+    def process_all_yearly(self):
+        print("process_all_yearly")
+        for month in range(1,13):
+            self._surfacestatusObject.generate_all_surface_info_monthly(self._bessObject.Year,month)
+            self._climateForcingInfoObject.generate_all_climate_forcing_info_monthly(self._bessObject.Year,month)
+            
+
+         
+
+
         
         
         

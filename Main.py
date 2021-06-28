@@ -23,7 +23,9 @@ myobject = _bess.BESS_Object(2021,1)
 
 myprocessor= processor.BESS_Processor(myobject)
 
-myprocessor.Surface_status_info_generator_monthly()
+myprocessor.process_all_yearly()
+
+# myprocessor.Surface_status_info_generator_monthly()
 # myprocessor.Surface_status_info_generator_yearly()
 
 # myprocessor.Climate_forcing_info_generator_monthly()
