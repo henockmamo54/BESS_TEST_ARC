@@ -164,19 +164,23 @@ def download_MCD12C1():
                 print("Unexpected error:", sys.exc_info()[0])
                 continue
      
-def download_Aqua_L2():
+def download_Aqua_Terra_L2():
 
-    products=["MYD04_L2","MYD06_L2","MYD07_L2","MYD11_L2"]    
+    products=["MYD04_L2","MYD06_L2","MYD07_L2","MYD11_L2","MOD04_L2","MOD06_L2","MOD07_L2","MOD11_L2"]    
         
     for product in products:
-        print("Downloading -> Aqua_L2 ->", product)
+        print("Downloading ->", product)
         try:
             for day in range (int((enddate_obj - startdate_obj).days)):
                 temp= startdate_obj + timedelta(days=day)  
                 
                 doy = int(datetime(temp.year,temp.month,temp.day).timetuple().tm_yday)  
                 
-                path_= os.path.join( path,"Aqua_L2", str(temp.year),str(doy),product)
+                if(product[:3]=='MYD'):
+                    path_= os.path.join( path,"Aqua_L2", str(temp.year),str(doy),product)
+                elif (product[:3]=='MOD'):
+                    path_= os.path.join( path,"Terra_L2", str(temp.year),str(doy),product)
+                
             
                 if not os.path.exists(path_):
                     print(path_)
@@ -184,7 +188,7 @@ def download_Aqua_L2():
                  
                 a = modapsclient.ModapsClient()
                 
-                if(product=='MYD011_L2'):
+                if(product=='MYD011_L2' or product =="MOD11_L2"):
                     collection="6"
                 else:
                     collection="61"
@@ -193,13 +197,8 @@ def download_Aqua_L2():
                                           endTime=enddate, north=north,south=south,
                                           west=west,east=east, collection=collection)
                 print("Products count = > ",len(items))
-                download_items(a,items,path_)
+                # download_items(a,items,path_)
             
-                # for p in items:
-                #     url=a.getFileUrls(p)[0]
-                #     print(p,url) 
-                #     cmd=('wget  --user hiik324 --password Ecology123 {0} --header "Authorization: Bearer C88B2F44-881A-11E9-B4DB-D7883D88392C" -P {1} '.format( url, path_))
-                #     os.system(cmd)
         except Exception as e:
             print("Error: ",e)
             print("Unexpected error:", sys.exc_info()[0])
@@ -209,4 +208,4 @@ if __name__ == "__main__":
     # download_modis_products()
     # download_MCD12C1()
     # download_MOD44B()
-    download_Aqua_L2()
+    download_Aqua_Terra_L2()
